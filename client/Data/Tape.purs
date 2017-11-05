@@ -32,6 +32,9 @@ import Data.Unfoldable (unfoldr)
 -- | Tape [2, 1] 3 [4, 5].
 data Tape a = Tape (Array a) a (Array a)
 
+add :: forall a. Tape a -> a -> Tape a
+add (Tape ls x rs) a = Tape ls x ([a] <> rs)
+
 
 -- | Produce a tape (focused on the first element) from an array.
 -- | Note that we can't make a Tape out of an empty array, hence the

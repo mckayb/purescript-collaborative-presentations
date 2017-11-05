@@ -16,6 +16,16 @@ exports.ioOn = function (io) {
   }
 }
 
+exports.ioEmit = function (io) {
+  return function (str) {
+    return function (o) {
+      return function () {
+        io.emit(str, o)
+      }
+    }
+  }
+}
+
 exports.socketEmit = function (socket) {
   return function (str) {
     return function (a) {

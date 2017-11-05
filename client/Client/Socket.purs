@@ -10,16 +10,14 @@ foreign import getSocketIOClientImpl :: forall e. String -> Eff (socket_io_clien
 foreign import socketOn :: forall e e1 a. SocketIOClient -> String -> (a -> Eff e1 Unit) -> Eff (socket_io_client :: SOCKET_IO_CLIENT | e) Unit
 foreign import socketEmit :: forall o e. SocketIOClient -> String -> o -> Eff (socket_io_client :: SOCKET_IO_CLIENT | e) Unit
 
-setupSocket :: forall e. Eff (socket_io_client :: SOCKET_IO_CLIENT | e) SocketIOClient
-setupSocket = do
+setupSocket :: forall a e1 e. (a -> Eff e1 Unit) -> Eff (socket_io_client :: SOCKET_IO_CLIENT | e) SocketIOClient
+setupSocket onNewAnswer = do
   socket <- getSocketIOClientImpl "http://purescript-presentation.local:8080"
 
   socketOn socket "connect" \d -> do
     log "ON connect"
     log d
 
-  socketOn socket "hello" \d -> do
-    log "ON HELLO"
-    log d
+  socketOn socket "new answer" onNewAnswer
 
   pure socket

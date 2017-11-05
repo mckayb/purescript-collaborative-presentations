@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/i-am-tom/perusal#readme",
   "dependencies": {
+    "jquery": "^3.2.1",
     "socket.io": "^2.0.4"
   }
 }

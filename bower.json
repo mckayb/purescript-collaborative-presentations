@@ -36,6 +36,7 @@
     "purescript-behaviors": "^5.1.0",
     "purescript-node-http": "^4.1.0",
     "purescript-smolder": "^10.2.0",
-    "purescript-smolder-dom": "^2.0.0"
+    "purescript-smolder-dom": "^2.0.0",
+    "purescript-jquery": "^4.3.0"
   }
 }
