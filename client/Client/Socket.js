@@ -15,3 +15,13 @@ exports.socketOn = function (socket) {
     }
   }
 }
+
+exports.socketEmit = function (socket) {
+  return function (str) {
+    return function (o) {
+      return function () {
+        socket.emit(str, o)
+      }
+    }
+  }
+}
