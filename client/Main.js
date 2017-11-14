@@ -16,6 +16,12 @@ exports.after = function (ob) {
   }
 }
 
+exports.getKey = function (ob) {
+  return function () {
+    return ob.keyCode || ob.which;
+  }
+}
+
 exports.trace = function (a) {
   console.log(a)
   return a

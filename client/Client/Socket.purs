@@ -12,7 +12,7 @@ foreign import socketEmit :: forall o e. SocketIOClient -> String -> o -> Eff (s
 
 setupSocket :: forall a e1 e. (a -> Eff e1 Unit) -> Eff (socket_io_client :: SOCKET_IO_CLIENT | e) SocketIOClient
 setupSocket onNewAnswer = do
-  socket <- getSocketIOClientImpl "http://purescript-presentation.local:8080"
+  socket <- getSocketIOClientImpl "http://homestead.app:8080"
 
   socketOn socket "connect" \d -> do
     log "ON connect"

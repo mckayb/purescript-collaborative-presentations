@@ -32,7 +32,7 @@ main = do
     socketOn socket "disconnect" \d -> do
       log "Disconnected"
 
-  listen server { hostname: "purescript-presentation.local", port: 8080, backlog: Nothing } $ void do
+  listen server { hostname: "homestead.app", port: 8080, backlog: Nothing } $ void do
     log "Listening on port 8080"
 
 
